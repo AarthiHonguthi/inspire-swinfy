@@ -76,3 +76,6 @@ body {
     @apply bg-background text-foreground;
   }
 }
+.nav-links {
+  font-family: var(--font-tt-rounds-condensed);
+}
