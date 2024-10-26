@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import Header from "../components/Header";
-import { Raleway } from 'next/font/google'; 
+import Footer from "../components/Footer";
+
+import { Poppins, Raleway } from 'next/font/google'; 
 
 
 
@@ -21,6 +23,11 @@ const ttRoundsCondensed = Raleway({
   variable: '--font-tt-rounds-condensed', 
   weight: ['400', '700'], 
 });
+const poppins = {
+  subsets: ['latin'],
+  variable: '--font-poppins', 
+  weight: ['400', '700'],
+};
 
 export const metadata: Metadata = {
   title: "Guest Connect",
@@ -37,10 +44,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <html lang="en" className={ttRoundsCondensed.variable}>
+      <html lang="en" className={poppins.variable}>
         
       <body>
-         <Header/>{children}</body>
+         <Header/>{children} <Footer/></body>
     </html>
     </html>
   );

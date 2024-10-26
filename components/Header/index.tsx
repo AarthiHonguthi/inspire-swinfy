@@ -1,68 +1,49 @@
-"use client";
-import Image from "next/image";
-import Link from "next/link";
-import { useEffect, useState } from "react";
+import Link from 'next/link';
 
-const Header = () => {
-  const [isTransparent, setIsTransparent] = useState(true);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 0) {
-        setIsTransparent(false);
-      } else {
-        setIsTransparent(true);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
+export default function Header() {
   return (
-    <header
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        isTransparent ? "bg-transparent" : "bg-dark"
-      }`}
-    >
-      <div className="container mx-auto flex items-center justify-between py-4 px-6">
-        {/* Logo */}
-        <div className="logo flex items-center">
-          <Image src="/images/inspirelogo.png" alt="Logo" width={100} height={40} />
-         
-        </div>
-
-        {/* Navigation */}
-        <nav className="flex space-x-14 text-white">
-  <Link href="/find-a-speaker" className="hover:text-gray-300" style={{ fontFamily: 'var(--font-tt-rounds-condensed)',fontWeight: 'bold' }}>
-    FIND A SPEAKER
-  </Link>
-  <Link href="/topics" className="hover:text-gray-300" style={{ fontFamily: 'var(--font-tt-rounds-condensed)',fontWeight: 'bold' }}>
-    TOPICS
-  </Link>
-  <Link href="/about-us" className="hover:text-gray-300" style={{ fontFamily: 'var(--font-tt-rounds-condensed)',fontWeight: 'bold' }}>
-    ABOUT US
-  </Link>
-  <Link href="/contact-us" className="hover:text-gray-300" style={{ fontFamily: 'var(--font-tt-rounds-condensed)',fontWeight: 'bold' }}>
-    CONTACT US
-  </Link>
-</nav>
-
-
-        {/* CTA Button */}
-        <div>
-          <Link
-            href="/book-a-speaker"
-            className="bg-white text-black px-4 py-2 rounded-full hover:bg-gray-300 transition-all"
-          style={{ fontFamily: 'var(--font-tt-rounds-condensed)',fontWeight: 'bold' }}>
-            Book a Speaker
-          </Link>
-        </div>
+    <header className="sticky top-0 w-full bg-[#fcfaee] flex items-center justify-between px-12 py-2 z-50 border-b border-gray-300 font-poppins">
+      <div>
+        <Link href="/">
+          <img src="/images/inspirelogo.png" alt="Guest Connect Logo" className="h-16 w-auto" />
+        </Link>
       </div>
+      <nav className="flex items-center">
+        <ul className="flex space-x-20 list-none font-poppins ...">
+         <li className="m-6">
+          <Link href="/" className="text-black font-bold group relative w-max">
+            <span>HOME</span>
+            <span className="absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-black group-hover:w-full"></span>
+          </Link>
+        </li>
+        <li className= "m-6">
+          <Link href="/findaspeaker" className="text-black font-bold group relative w-max">
+            <span>FIND A SPEAKER</span> 
+            <span className="absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-black group-hover:w-full"></span>
+          </Link>
+        </li>
+         <li className= "m-6">
+          <Link href="/aboutus" className="text-black font-bold group relative w-max">
+            <span>ABOUT US</span> 
+            <span className="absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-black group-hover:w-full"></span>
+          </Link>
+        </li>
+        <li className= "m-6">
+          <Link href="/topics" className="text-black font-bold group relative w-max">
+            <span>TOPICS</span> 
+            <span className="absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-black group-hover:w-full"></span>
+          </Link>
+        </li>
+         <li className= "m-6">
+          <Link href="/contactus" className="text-black font-bold group relative w-max">
+            <span>CONTACT US</span> 
+            <span className="absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-black group-hover:w-full"></span>
+          </Link>
+        </li>
+        </ul>
+      </nav>
+              <button className="ml-6 bg-[#C5BDB5] px-4 py-2 rounded font-bold text-black-800 hover:bg-[#422F2F] hover:text-white">REQUEST A SPEAKER</button>
+
     </header>
   );
-};
-
-export default Header;
+}
