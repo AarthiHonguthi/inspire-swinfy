@@ -17,8 +17,6 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "dotenv": "^16.4.5",
-    "firebase": "^11.0.1",
-    "firebase-admin": "^12.7.0",
     "framer-motion": "^11.11.10",
     "google-fonts": "^1.0.0",
     "lucide-react": "^0.447.0",
@@ -31,7 +29,6 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
-    "@types/firebase": "^3.2.3",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
