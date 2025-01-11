@@ -56,26 +56,30 @@ const HowItWorks: React.FC = () => {
       imageUrl: "/images/1.png",
       number: 1,
       title: "Create an Invitation Request",
-      description: "Tell us what you need to insure, how much it's worth, and where you live and estimate your rate (with different options for deductibles) in less than one minute."
+      description:
+        "Easily initiate an invitation by filling in event details, specifying the type of expert you need, and setting expectations for the event.",
     },
     {
       imageUrl: "/images/2.png",
       number: 2,
       title: "Coordinate and Confirm Availability",
-      description: "Tell us a bit more about yourself and your jewelry and, in most cases, your coverage starts immediately. If someone else actually wears the jewelry, tell us about them too."
+      description:
+        "Once the invitation is sent, coordinate directly with experts to confirm their availability and discuss any event requirements.",
     },
     {
       imageUrl: "/images/3.png",
       number: 3,
       title: "Match with Industry Experts",
-      description: "Enjoy your jewelry knowing you're protected worldwide against loss, theft, damage, and mysterious disappearance."
+      description:
+        "Find and connect with the right industry experts using our searchable database, ensuring a perfect fit for your event's needs.",
     },
     {
       imageUrl: "/images/4.png",
       number: 4,
       title: "Manage Logistics and Payments",
-      description: "Enjoy your jewelry knowing you're protected worldwide against loss, theft, damage, and mysterious disappearance."
-    }
+      description:
+        "Handle all logistical details and payments securely through our platform, simplifying transport, accommodation, and invoicing.",
+    },
   ];
 
   return (
@@ -103,7 +107,9 @@ const HowItWorks: React.FC = () => {
               <div
                 key={index}
                 ref={ref}
-                className={`flex items-center gap-8 relative ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}
+                className={`flex items-center gap-8 relative ${
+                  index % 2 === 0 ? "flex-row" : "flex-row-reverse"
+                }`}
               >
                 <StepContent step={step} index={index} inView={isInView} />
 
@@ -114,19 +120,26 @@ const HowItWorks: React.FC = () => {
                     transition={{ duration: 0.5 }}
                     className="w-24 h-24 bg-white rounded-full shadow-lg flex items-center justify-center relative z-10"
                   >
-                    <img src={step.imageUrl} alt={step.title} className="w-16 h-16" />
+                    <img
+                      src={step.imageUrl}
+                      alt={step.title}
+                      className="w-16 h-16"
+                    />
                     <motion.div
                       initial={{ scale: 0 }}
                       animate={{ scale: isInView ? 1 : 0 }}
                       transition={{ duration: 0.5, delay: 0.2 }}
-                      className="absolute -top-3 -right-3 w-8 h-8 bg-[#e39075] text-white rounded-full flex items-center justify-center font-bold"
+                      className="absolute -top-3 -right-3 w-8 h-8 bg-[#748d92] text-white rounded-full flex items-center justify-center font-bold"
                     >
                       {step.number}
                     </motion.div>
                   </motion.div>
                 </div>
 
-                <ProgressLine inView={isInView} isLast={index === steps.length - 1} />
+                <ProgressLine
+                  inView={isInView}
+                  isLast={index === steps.length - 1}
+                />
 
                 <div className="w-1/2" />
               </div>

@@ -27,8 +27,8 @@ interface FindSpeakerPageProps {
 
 export default function FindSpeakerPage({ category }: FindSpeakerPageProps) {
   return (
-    <div className="min-h-screen bg-[#14394b] py-12 px-4 mt">
-      <div className="max-w-6xl mx-auto bg-[#14394b]">
+    <div className="min-h-screen bg-[#212a31] py-12 px-4 mt">
+      <div className="max-w-6xl mx-auto bg-[#212a31]">
         <h1
           className="text-4xl md:text-5xl font-bold text-center mb-16 text-white mt-28"
           style={{ fontFamily: "Playfair Display" }}

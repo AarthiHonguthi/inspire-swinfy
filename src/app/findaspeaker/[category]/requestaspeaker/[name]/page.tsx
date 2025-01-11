@@ -120,7 +120,7 @@ const RequestaSpeaker = () => {
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="w-3/4 bg-[#e39075] p-6">
+            <div className="w-3/4 bg-[#486776] p-6">
               <h2 className="text-white text-lg font-semibold mb-2">
                 BOOKING INFORMATION REQUEST
               </h2>
@@ -138,7 +138,7 @@ const RequestaSpeaker = () => {
         </div>
 
         <div className="mt-8 gap-10 ">
-          <div className="p-8 bg-[#1a3b50]">
+          <div className="p-8 bg-[#212a31]">
             <form onSubmit={handleSubmit} className="space-y-4">
               <input
                 type="email"
@@ -237,4 +237,5 @@ const RequestaSpeaker = () => {
   );
 };
 
+// export default RequestaSpeaker;
 export default RequestaSpeaker;

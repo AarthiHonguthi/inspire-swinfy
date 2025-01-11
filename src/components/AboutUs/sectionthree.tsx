@@ -45,13 +45,18 @@ const SectionThree = () => {
 
   return (
     <div className="w-full max-w-6xl mx-auto py-12 px-4">
-      <h2 className="text-3xl font-bold text-center mb-16 text-[#14394b]" style={{ fontFamily: "Playfair Display" }}>OUR CLIENTS</h2>
-      
+      <h2
+        className="text-3xl font-bold text-center mb-16 text-[#14394b]"
+        style={{ fontFamily: "Playfair Display" }}
+      >
+        OUR CLIENTS
+      </h2>
+
       <div className="relative flex items-center">
         {/* Previous Button */}
         <button
           onClick={handlePrevious}
-          className="absolute left-0 z-10 p-2 bg-[#14394b] rounded-full shadow-lg hover:bg-gray-100 transform -translate-x-1/2"
+          className="absolute left-0 z-10 p-2 bg-[#46686e] rounded-full shadow-lg hover:bg-[#748d92] transform -translate-x-1/2"
         >
           <svg
             className="w-6 h-6"
@@ -73,11 +78,11 @@ const SectionThree = () => {
           <motion.div
             className="flex items-center gap-8"
             animate={{
-              x: `-${currentIndex * (100 / visibleLogos)}%`
+              x: `-${currentIndex * (100 / visibleLogos)}%`,
             }}
             transition={{
               duration: 0.5,
-              ease: "easeInOut"
+              ease: "easeInOut",
             }}
           >
             {logos.map((logo) => (
@@ -85,7 +90,7 @@ const SectionThree = () => {
                 key={logo.id}
                 className="flex-shrink-0 w-[calc(100%/6-2rem)] flex items-center justify-center"
                 whileHover={{ scale: 1.1 }} // Scale up slightly on hover
-                transition={{ type: 'spring', stiffness: 300 }} // Spring transition for hover effect
+                transition={{ type: "spring", stiffness: 300 }} // Spring transition for hover effect
               >
                 <img
                   src={logo.src}
@@ -100,7 +105,7 @@ const SectionThree = () => {
         {/* Next Button */}
         <button
           onClick={handleNext}
-          className="absolute right-0 z-10 p-2 bg-[#14394b] rounded-full shadow-lg hover:bg-gray-100 transform translate-x-1/2"
+          className="absolute right-0 z-10 p-2 bg-[#46686e] rounded-full shadow-lg hover:bg-[#748d92] transform translate-x-1/2"
         >
           <svg
             className="w-6 h-6"

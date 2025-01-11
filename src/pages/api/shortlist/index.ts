@@ -38,11 +38,34 @@ export default async function handler(
       break;
 
     case "DELETE":
-      try {
-        await Shortlist.deleteMany({});
-        res.status(200).json({ success: true, message: "Shortlist cleared" });
-      } catch (error) {
-        res.status(400).json({ success: false, error });
+      const { id } = req.query; // You forgot to extract 'id' from the query
+      if (id) {
+        // If an ID is provided, delete the specific speaker
+        try {
+          const deletedSpeaker = await Shortlist.findByIdAndDelete(id);
+          if (!deletedSpeaker) {
+            return res
+              .status(404)
+              .json({ success: false, message: "Speaker not found" });
+          }
+          res
+            .status(200)
+            .json({
+              success: true,
+              message: "Speaker removed from shortlist",
+              data: deletedSpeaker,
+            });
+        } catch (error) {
+          res.status(500).json({ success: false, error });
+        }
+      } else {
+        // If no ID is provided, clear the entire shortlist
+        try {
+          await Shortlist.deleteMany({});
+          res.status(200).json({ success: true, message: "Shortlist cleared" });
+        } catch (error) {
+          res.status(400).json({ success: false, error });
+        }
       }
       break;
 

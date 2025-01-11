@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
 import { useParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import {
@@ -125,12 +126,12 @@ const ProfileSection = () => {
         </Card>
 
         <div className="text-center mb-12">
-          <Button
-            size="lg"
-            className="bg-[#e39075] text-white px-8 py-3 rounded-md hover:bg-[#d27d64]"
+          <Link
+            href={`/findaspeaker/academicians/requestaspeaker/${profile.name}`}
+            className="bg-[#e39075] text-white px-8 py-3 rounded-md hover:bg-[#d27d64] inline-block"
           >
             {profile.bookButtonText}
-          </Button>
+          </Link>
         </div>
 
         <div>

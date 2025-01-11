@@ -24,18 +24,27 @@ export default async function handler(
   }
 
   const { method } = req;
-  const { slug } = req.query; // Retrieve slug parameter from the URL
 
   switch (method) {
     case "GET":
       try {
+        const { slug } = req.query; // Retrieve slug from query
+        if (!slug) {
+          return res.status(400).json({
+            success: false,
+            message: "Missing 'slug' in the request query",
+          });
+        }
+
         const bookingRequest = await BookingRequest.findOne({ name: slug });
+
         if (!bookingRequest) {
           return res.status(404).json({
             success: false,
             message: `Booking request with name '${slug}' not found`,
           });
         }
+
         res.status(200).json({ success: true, data: bookingRequest });
       } catch (error) {
         res.status(500).json({
@@ -48,7 +57,15 @@ export default async function handler(
 
     case "PUT":
       try {
+        const { slug } = req.query; // Retrieve slug from query
         const updatedData = req.body;
+
+        if (!slug) {
+          return res.status(400).json({
+            success: false,
+            message: "Missing 'slug' in the request query",
+          });
+        }
 
         if (!updatedData) {
           return res.status(400).json({
@@ -82,18 +99,27 @@ export default async function handler(
 
     case "DELETE":
       try {
-        const result = await BookingRequest.findOneAndDelete({ name: slug });
+        const { _id } = req.body; // Expect _id in the request body
+        if (!_id) {
+          return res.status(400).json({
+            success: false,
+            message: "Missing '_id' in the request body",
+          });
+        }
+
+        const result = await BookingRequest.findByIdAndDelete(_id);
 
         if (!result) {
           return res.status(404).json({
             success: false,
-            message: `Booking request with name '${slug}' not found`,
+            message: `Booking request with id '${_id}' not found`,
           });
         }
 
         res.status(200).json({
           success: true,
-          message: `Booking request '${slug}' deleted successfully`,
+          message: `Booking request with id '${_id}' deleted successfully`,
+          data: result,
         });
       } catch (error) {
         res.status(400).json({

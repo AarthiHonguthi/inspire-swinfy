@@ -1,3 +1,4 @@
+import moment from "moment-timezone"; // Import moment-timezone
 import { NextApiRequest, NextApiResponse } from "next";
 import dbConnect from "../../../lib/dbConnect";
 import BookingRequest, {
@@ -29,8 +30,47 @@ export default async function handler(
   switch (method) {
     case "GET":
       try {
-        const bookingRequests = await BookingRequest.find();
-        res.status(200).json({ success: true, data: bookingRequests });
+        const { createdAt, requestSpeaker } = req.query; // Extract createdAt and requestSpeaker from query params
+
+        const query: { [key: string]: any } = {};
+
+        if (createdAt) {
+          const startOfDay = moment(createdAt as string, "YYYY-MM-DD")
+            .tz("Asia/Kolkata")
+            .startOf("day")
+            .toISOString();
+          const endOfDay = moment(createdAt as string, "YYYY-MM-DD")
+            .tz("Asia/Kolkata")
+            .endOf("day")
+            .toISOString();
+
+          query.createdAt = {
+            $gte: startOfDay,
+            $lte: endOfDay,
+          };
+        }
+
+        if (requestSpeaker) {
+          query.requestSpeaker = {
+            $regex: `^${requestSpeaker}$`,
+            $options: "i", // Case-insensitive match
+          };
+        }
+
+        const bookingRequests = await BookingRequest.find(query);
+
+        // Format createdAt and updatedAt fields into IST for the response
+        const formattedBookingRequests = bookingRequests.map((request) => ({
+          ...request.toObject(),
+          createdAt: moment(request.createdAt)
+            .tz("Asia/Kolkata")
+            .format("YYYY-MM-DD HH:mm:ss"),
+          updatedAt: moment(request.updatedAt)
+            .tz("Asia/Kolkata")
+            .format("YYYY-MM-DD HH:mm:ss"),
+        }));
+
+        res.status(200).json({ success: true, data: formattedBookingRequests });
       } catch (error) {
         res.status(500).json({
           success: false,

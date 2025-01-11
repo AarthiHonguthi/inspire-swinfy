@@ -80,7 +80,7 @@ const BeMyGuest = () => {
         </p>
 
         <div className="mt-8 gap-10">
-          <div className="p-8 bg-[#1a3b50]">
+          <div className="p-8 bg-[#212a31]">
             <form onSubmit={handleSubmit} className="space-y-4">
               <input
                 type="email"

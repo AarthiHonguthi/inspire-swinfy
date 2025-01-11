@@ -69,7 +69,7 @@ const SpeakerList: React.FC<{ category: string }> = ({ category }) => {
 
 const SpeakerCard: React.FC<{ speaker: Speaker }> = ({ speaker }) => {
   return (
-    <div className="bg-[#edbfb0] rounded-lg p-4 mb-4 flex gap-4 items-center mt-20">
+    <div className="bg-[#486776] rounded-lg p-4 mb-4 flex gap-4 items-center mt-20">
       {/* Render image on the left side */}
       <div className="flex-shrink-0 w-48 h-48">
         <img

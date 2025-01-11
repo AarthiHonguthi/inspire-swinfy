@@ -7,15 +7,20 @@ const HeroSection: React.FC = () => {
   const slides = [
     {
       image: "/images/slide1.png",
-      quote: "This is your first amazing quote.",
+      quote:
+        "Your dreams are what define your individuality. They have the power to give you wings and make you fly high.",
+      header: "P.V. Sindhu",
     },
     {
       image: "/images/slide2.png",
-      quote: "Here's a second inspiring quote.",
+      quote:
+        "Connect with top experts, manage event logistics effortlessly, and let Guest Connect handle the details. Discover a smoother, more efficient way to plan and host events that inspire and impact.",
+      header: "Where Experts Meet Your Event Vision",
     },
     {
       image: "/images/slide3.png",
-      quote: "Finally, a third quote to keep you going.",
+      quote: "From Invitations to Invoicing, We’ve Got You Covered!",
+      header: "Welcome to Guest Connect",
     },
   ];
 
@@ -52,15 +57,17 @@ const HeroSection: React.FC = () => {
       ))}
       <div className="absolute inset-0 bg-black opacity-50 transition-opacity duration-700" />
 
-      <div className="relative z-10 flex flex-col md:flex-row items-center justify-between w-full max-w-4xl px-8">
-        <div className="flex-1 text-right md:pr-16 ml-auto">
-  <h1 className="text-4xl font-bold mb-4">Hero Section</h1>
-  <p className="text-lg mb-8">{slides[currentSlide].quote}</p>
-  <button className="bg-white text-gray-500 py-2 px-4 rounded shadow">
-    Get Started
-  </button>
-</div>
-
+      <div className="relative z-12 flex flex-col md:flex-row items-center justify-between w-full max-w-8xl px-8">
+        <div className="flex-1 text-right md:pr-20 ml-auto ">
+          <h1 className="text-4xl font-bold mb-4">
+            {slides[currentSlide].header}
+          </h1>
+          <div className="flex justify-end">
+            <p className="text-lg mb-8 w-1/3 text-right">
+              {slides[currentSlide].quote}
+            </p>
+          </div>
+        </div>
       </div>
 
       {/* Navigation Dots */}
