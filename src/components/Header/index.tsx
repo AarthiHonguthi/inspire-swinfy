@@ -111,7 +111,7 @@ export default function Header() {
                 <span className="text-gray-300 absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-[#748D92] group-hover:w-full"></span>
               </Link>
             </li>
-            <li className="m-4">
+            {/* <li className="m-4">
               <Link
                 href="/topics"
                 className="text-gray-300 font-medium group relative w-max"
@@ -119,7 +119,7 @@ export default function Header() {
                 <span>TOPICS</span>
                 <span className="text-gray-300 absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-[#748D92] group-hover:w-full"></span>
               </Link>
-            </li>
+            </li> */}
             <li className="m-4">
               <Link
                 href="/shortlist"
