@@ -7,11 +7,12 @@ import BookingRequest, {
 
 type ResponseData = {
   success: boolean;
-  data?: IBookingRequest | IBookingRequest[];
+  data?: any; 
   message?: string;
   error?: any;
   result?: any;
 };
+
 
 export default async function handler(
   req: NextApiRequest,
