@@ -13,6 +13,7 @@ export interface IBookingRequest extends Document {
   bookingFor: string;
   eventDescription: string;
   createdAt?: Date | string;
+  updatedAt?: Date | string;
 }
 
 // Define the schema
