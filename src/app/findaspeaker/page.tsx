@@ -1,8 +1,7 @@
-// Inside FindSpeakerPage component
 "use client";
-import React from 'react';
-import { motion } from 'framer-motion';
-import Link from 'next/link';
+import React from "react";
+import { motion } from "framer-motion";
+import Link from "next/link";
 
 interface SpeakerCategory {
   id: string;
@@ -11,21 +10,17 @@ interface SpeakerCategory {
 }
 
 const categories: SpeakerCategory[] = [
-  { id: 'academicians', title: 'Academicians', image: '/images/100.jpeg' },
-  { id: 'celebrities', title: 'Celebrities', image: '/images/101.png' },
-  { id: 'scholars', title: 'Scholars', image: '/images/103.png' },
-  { id: 'bureaucrats', title: 'Bureaucrats', image: '/images/104.png' },
-  { id: 'politicians', title: 'Politicians', image: '/images/105.png' },
-  { id: 'athletes', title: 'Athletes', image: '/images/106.jpg' },
-  { id: 'notable', title: 'Notable Achievers', image: '/images/108.png' },
-  { id: 'entrepreneurs', title: 'Entrepreneurs', image: '/images/109.webp' },
+  { id: "academicians", title: "Academicians", image: "/images/100.jpeg" },
+  { id: "celebrities", title: "Celebrities", image: "/images/101.png" },
+  { id: "scholars", title: "Scholars", image: "/images/103.png" },
+  { id: "bureaucrats", title: "Bureaucrats", image: "/images/104.png" },
+  { id: "politicians", title: "Politicians", image: "/images/105.png" },
+  { id: "athletes", title: "Athletes", image: "/images/106.jpg" },
+  { id: "notable", title: "Notable Achievers", image: "/images/108.png" },
+  { id: "entrepreneurs", title: "Entrepreneurs", image: "/images/109.webp" },
 ];
 
-interface FindSpeakerPageProps {
-  category?: string; // Optional prop if category may be undefined initially
-}
-
-export default function FindSpeakerPage({ category }: FindSpeakerPageProps) {
+export default function FindSpeakerPage() {
   return (
     <div className="min-h-screen bg-[#212a31] py-12 px-4 mt">
       <div className="max-w-6xl mx-auto bg-[#212a31]">
@@ -38,8 +33,8 @@ export default function FindSpeakerPage({ category }: FindSpeakerPageProps) {
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
           {categories.map((category) => (
-            <Link 
-              href={`/findaspeaker/${category.id}`} 
+            <Link
+              href={`/findaspeaker/${category.id}`}
               key={category.id}
               passHref
             >
